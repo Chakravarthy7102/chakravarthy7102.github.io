@@ -21,12 +21,11 @@ const { title } = Astro.props;
       class="text-sm text-zinc-400 absolute flex justify-center p-5 gap-3"
     >
       <a class="hover:text-zinc-200" href="/devchaks/">About</a>|
-      <a class="hover:text-zinc-200" href="/devchaks/quotes">Quotes</a
-      >
+      <a class="hover:text-zinc-200" href="/devchaks/quotes">Quotes</a>
     </header>
     <slot />
     <footer
-      class="absolute bottom-0 p-2 flex justify-between text-xs md:min-w-[32rem] min-w-full"
+      class="p-2 flex justify-between text-xs md:min-w-[32rem] min-w-full md:pt-28 pt-12"
     >
       <span class="text-xs"
         >&copy; {new Date().getFullYear()} Chaks, Made with <a
@@ -78,5 +77,18 @@ const { title } = Astro.props;
       font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
         DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
     }
+
+    blockquote::before {
+      content: open-quote;
+    }
+
+    blockquote::after {
+      content: close-quote;
+    }
+
+    blockquote {
+      quotes: "“" "”" "‘" "’";
+    }
+    
   </style>
 </html>
