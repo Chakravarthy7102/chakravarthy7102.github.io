@@ -1,19 +1,54 @@
 ---
 import Quote from "../components/quote.astro";
 import Layout from "../layouts/Layout.astro";
+
+const quotes = [
+  {
+    quote: "The optimal zone for performance is “slightly hungry.”",
+    author: "Naval",
+  },
+  {
+    quote:
+      "A ship in harbor is safe, but that is not what ships are built for.",
+    author: "John A. Shedd",
+  },
+  {
+    quote: "If you want to make the wrong decision, ask everyone.",
+    author: "Naval",
+  },
+  {
+    quote: "specialization is for insects",
+    author: "?",
+  },
+  {
+    quote:
+      "Programs should be written for people to read, and only incidentally for machines to execute",
+    author: "Structure and Interpretation of Computer Programs",
+  },
+  {
+    quote: "If you want to make the wrong decision, ask everyone.",
+    author: "Naval",
+  },
+  {
+    quote: "Regardless of the past, do not ask the future.",
+    author: "?",
+  },
+];
 ---
 
 <Layout title="DevChaks | Quotes">
   <div class="pt-20 px-5 space-y-3">
     <h1 class="text-4xl font-bold">Quotes</h1>
     <p class="text-sm text-zinc-400">
-      This is a collection of quotes that I&apos;ve stumbled upon the internet, books, movies, anime and from the people I meet.
+      This is a collection of quotes that I&apos;ve stumbled upon the internet,
+      books, movies, anime and from the people I meet.
     </p>
   </div>
   <div class="max-h-[calc(100vh - 30px)] overflow-auto space-y-3 px-3 mt-5">
-    <Quote author="Naval" quote="The optimal zone for performance is “slightly hungry.”"/>
-    <Quote author="Naval" quote="If you want to make the wrong decision, ask everyone." />
-    <Quote author="?" quote="specialization is for insects."/>
-    <Quote author="Structure and Interpretation of Computer Programs" quote="Programs should be written for people to read, and only incidentally for machines to execute."/>
+    {
+      quotes.map((quote) => {
+        return <Quote {...quote} />;
+      })
+    }
   </div>
 </Layout>
